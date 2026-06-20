@@ -63,8 +63,10 @@ fun RegisterScreen(
     var confirmPasswordVisible by remember { mutableStateOf(false) }
 
     val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
     ) { paddingValues ->
         Box(
             modifier = Modifier
@@ -220,7 +222,8 @@ fun RegisterScreen(
                             onClick = {
                                 viewModel.register {
                                     scope.launch {
-                                        delay(1000) // Brief delay to see the snackbar
+                                        snackbarHostState.showSnackbar("Registration Successful")
+                                        delay(1500) // Brief delay to see the snackbar
                                         onRegisterSuccess()
                                     }
                                 }
