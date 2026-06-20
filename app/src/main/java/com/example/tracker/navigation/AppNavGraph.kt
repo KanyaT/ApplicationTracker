@@ -31,9 +31,7 @@ fun AppNavGraph() {
         composable(Routes.REGISTER) {
             RegisterScreen(
                 onRegisterSuccess = {
-                    navController.navigate(Routes.LOGIN) {
-                        popUpTo(Routes.REGISTER) { inclusive = true }
-                    }
+                    navController.navigate(Routes.LOGIN)
                 },
                 onBackToLogin = {
                     navController.popBackStack()
