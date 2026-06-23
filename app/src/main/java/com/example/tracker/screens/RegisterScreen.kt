@@ -175,7 +175,10 @@ fun RegisterScreen(
                                 else Icons.Filled.VisibilityOff
 
                                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                                    Icon(imageVector = image, contentDescription = "Toggle password visibility")
+                                    Icon(
+                                        imageVector = image,
+                                        contentDescription = "Toggle password visibility"
+                                    )
                                 }
                             },
                             colors = OutlinedTextFieldDefaults.colors(
@@ -202,8 +205,13 @@ fun RegisterScreen(
                                     Icons.Filled.Visibility
                                 else Icons.Filled.VisibilityOff
 
-                                IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
-                                    Icon(imageVector = image, contentDescription = "Toggle confirm password visibility")
+                                IconButton(onClick = {
+                                    confirmPasswordVisible = !confirmPasswordVisible
+                                }) {
+                                    Icon(
+                                        imageVector = image,
+                                        contentDescription = "Toggle confirm password visibility"
+                                    )
                                 }
                             },
                             colors = OutlinedTextFieldDefaults.colors(
@@ -223,7 +231,7 @@ fun RegisterScreen(
                                 viewModel.register {
                                     scope.launch {
                                         snackbarHostState.showSnackbar("Registration Successful")
-                                        delay(1500) // Brief delay to see the snackbar
+                                     //   delay(1500) // Brief delay to see the snackbar
                                         onRegisterSuccess()
                                     }
                                 }

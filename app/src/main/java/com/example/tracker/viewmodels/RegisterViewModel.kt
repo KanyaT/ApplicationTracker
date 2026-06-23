@@ -50,17 +50,13 @@ class RegisterViewModel() : ViewModel() {
     }
 
     fun register(onSuccess: () -> Unit) {
-//        if (isRegisterEnabled) {
-//            viewModelScope.launch {
-//                val existingUser = userDao.getUserByUsername(username)
-//                if (existingUser != null) {
-//                    errorMessage = "Username already exists"
-//                } else {
-//                    userDao.insertUser(User(username, password))
-//                    onSuccess()
-//                }
-//            }
-//        }
+        if (isRegisterEnabled) {
+            viewModelScope.launch {
+
+                    onSuccess()
+
+            }
+        }
     }
 
     fun clearError() {
